@@ -1,10 +1,22 @@
 import './App.css'
 import styled from "styled-components"
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyle } from "./styles/Global"
 
 export const App = () => {
 
+
+  // using theme provider
+
+ const Theme = {
+  color:{
+    primaryCol: "orange",
+  }
+ }
+
+
   // Using variable
-  const primaryCol = "orange"
+  // const primaryCol = "orange"
 
   // Making styled components for each tag.
 
@@ -33,7 +45,7 @@ export const App = () => {
   `
   const PTag = styled.p`
   // color: #ffffff;
-  color: ${primaryCol};
+  color: ${Theme.color.primaryCol};
   `
 
   // Making Wrapper component for whole tag
@@ -59,7 +71,9 @@ export const App = () => {
 //   `
 
   return (
+    <ThemeProvider theme = {Theme}>
     <>
+    <GlobalStyle />
     {/* Implementing styled components */}
     {/* <Wrapper>
     <button className='btn'>Hello !</button>
@@ -69,5 +83,6 @@ export const App = () => {
     <Button bg="coral">Hello ! <span>World</span></Button>
     <PTag>Have A Nice Day !!!</PTag>
     </>
+    </ThemeProvider>
   )
 }
