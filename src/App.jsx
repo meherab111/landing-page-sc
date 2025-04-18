@@ -1,35 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import styled from "styled-components"
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App = () => {
+
+  // Using variable
+  const primaryCol = "orange"
+
+  // Making styled components for each tag.
+
+  const Button = styled.button`
+  cursor: pointer;
+  font-size: 1.6rem;
+  border: none;
+  padding: 1.2rem 2.2rem;
+  color: rgb(0, 66, 30);
+  //use of props
+  background-color: ${(props) => {return props.bg}};
+  border-radius: 100rem ;
+  -webkit-border-radius: 100rem ;
+  -moz-border-radius: 100rem ;
+  -ms-border-radius: 100rem ;
+  -o-border-radius: 100rem ;
+
+  &:hover{
+  transform: translateY(-0.2rem)
+  }
+
+  span{
+  color: red;
+  }
+
+  `
+  const PTag = styled.p`
+  // color: #ffffff;
+  color: ${primaryCol};
+  `
+
+  // Making Wrapper component for whole tag
+
+//   const Wrapper = styled.section`
+//   .btn{
+//   cursor: pointer;
+//    font-size: 1.6rem;
+//    border: none;
+//    padding: 1.2rem 2.2rem;
+//    color: rgb(0, 66, 30);
+//    background-color: rgb(104, 243, 24);
+//    border-radius: 100rem ;
+//    -webkit-border-radius: 100rem ;
+//    -moz-border-radius: 100rem ;
+//    -ms-border-radius: 100rem ;
+//    -o-border-radius: 100rem ;
+//   }
+
+//  .p-tag{
+//  color: #ffffff;
+//  }
+//   `
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    {/* Implementing styled components */}
+    {/* <Wrapper>
+    <button className='btn'>Hello !</button>
+    <p className='p-tag'>Have A Nice Day !!!</p>
+    </Wrapper> */}
+    {/* using props */}
+    <Button bg="coral">Hello ! <span>World</span></Button>
+    <PTag>Have A Nice Day !!!</PTag>
     </>
   )
 }
-
-export default App
